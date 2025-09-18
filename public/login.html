@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion - Chat Entreprise</title>
+  <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <div class="logo">
+        <h1>💬</h1>
+        <h2>Chat Entreprise</h2>
+      </div>
+      
+      <form id="loginForm" class="login-form">
+        <div class="input-group">
+          <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+        </div>
+        
+        <div class="input-group">
+          <input type="password" id="password" placeholder="Mot de passe" required>
+        </div>
+        
+        <button type="submit" class="login-btn">Se connecter</button>
+        
+        <div id="error-message" class="error-message"></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="scripts/login.js"></script>
+</body>
+</html>

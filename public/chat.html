@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Entreprise</title>
+  <link rel="stylesheet" href="styles/chat.css">
+</head>
+<body>
+  <div class="chat-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <div class="user-profile">
+          <img id="currentUserPic" class="profile-pic" alt="Photo de profil">
+          <div class="user-info">
+            <h3 id="currentUsername">Utilisateur</h3>
+            <span class="status online">En ligne</span>
+          </div>
+        </div>
+        
+        <div class="header-actions">
+          <button id="adminPanelBtn" class="icon-btn" title="Panel Admin" style="display: none;">⚙️</button>
+          <button id="logoutBtn" class="icon-btn" title="Se déconnecter">🚪</button>
+        </div>
+      </div>
+      
+      <div class="active-users">
+        <h4>Utilisateurs connectés</h4>
+        <div id="usersList"></div>
+      </div>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="chat-area">
+      <div class="chat-header">
+        <h2>💬 Chat Général</h2>
+        <div class="online-count">
+          <span id="onlineCount">0</span> personne(s) en ligne
+        </div>
+      </div>
+      
+      <div class="messages-container">
+        <div id="messages"></div>
+      </div>
+      
+      <div class="message-input">
+        <form id="messageForm">
+          <div class="input-container">
+            <div id="attachmentPreview" class="attachment-preview">
+              <div class="attachment-info">
+                <span id="attachmentIcon" class="attachment-icon"></span>
+                <div class="attachment-details">
+                  <div id="attachmentName" class="attachment-name"></div>
+                  <div id="attachmentSize" class="attachment-size"></div>
+                </div>
+                <button type="button" id="removeAttachment" class="remove-attachment">×</button>
+              </div>
+              <div id="uploadProgress" class="upload-progress">
+                <div id="progressBar" class="progress-bar"></div>
+              </div>
+            </div>
+            <input type="text" id="messageInput" placeholder="Tapez votre message..." autocomplete="off">
+          </div>
+          <div class="input-actions">
+            <input type="file" id="attachmentInput" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.jpg,.jpeg,.png,.gif,.webp,.svg">
+            <button type="button" id="attachmentBtn" class="attachment-btn" title="Joindre un fichier">📎</button>
+            <button type="submit" class="send-btn">📤</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Panel Modal -->
+  <div id="adminModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Panel d'Administration</h3>
+        <button id="closeAdmin" class="close-btn">×</button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="admin-section">
+          <h4>Ajouter un utilisateur</h4>
+          <form id="addUserForm" enctype="multipart/form-data">
+            <input type="text" id="newUsername" placeholder="Nom d'utilisateur" required>
+            <input type="password" id="newPassword" placeholder="Mot de passe" required>
+            <input type="file" id="profilePicFile" accept="image/*">
+            <label>
+              <input type="checkbox" id="isAdmin"> Administrateur
+            </label>
+            <button type="submit">Ajouter</button>
+          </form>
+        </div>
+        
+        <div class="admin-section">
+          <h4>Gérer les utilisateurs</h4>
+          <div id="userManagement"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="image-modal">
+    <button class="close-btn" onclick="closeImageModal()">×</button>
+    <img id="modalImage" src="" alt="Image">
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="scripts/chat.js"></script>
+</body>
+</html>

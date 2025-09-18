@@ -1,0 +1,31 @@
+{
+  "name": "intern-chat-app",
+  "version": "1.0.0",
+  "description": "Application de chat d'entreprise",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "node image.js",
+    "setup": "node image.js",
+    "reset": "node reset-db.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["chat", "socket.io", "express"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1",
+    "sqlite3": "^5.1.6",
+    "bcrypt": "^5.1.1",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
