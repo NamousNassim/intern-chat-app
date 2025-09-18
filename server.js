@@ -48,7 +48,7 @@ app.get('/health', (req, res) => {
 
 // Root route redirect
 app.get('/', (req, res) => {
-  res.redirect('/index.html');
+  res.redirect('/login.html');
 });
 
 // ...rest of your existing server.js code stays the same...
